@@ -330,7 +330,8 @@ def inference_from_files(args):
     names = os.listdir(args.inference_path) if args.inference_path != None else tqdm(read_strings_from_txt('data/timesplit_test'))
     for idx, name in enumerate(names):
         print(f'\nProcessing {name}: complex {idx + 1} of {len(names)}')
-        file_names = os.listdir(os.path.join(args.inference_path, name))
+        # file_names = os.listdir(os.path.join(args.inference_path, name))
+        file_names = [name for name in os.listdir(os.path.join(args.inference_path, name)) if "DS_Store" not in name]
         rec_name = [i for i in file_names if 'rec.pdb' in i or 'protein' in i][0]
         lig_names = [i for i in file_names if 'ligand' in i]
         rec_path = os.path.join(args.inference_path, name, rec_name)

@@ -7,7 +7,7 @@ import time
 from tqdm import tqdm
 
 start_time = time.time()
-data_path = 'PDBBind'
+data_path = 'data/PDBBind'
 overwrite = False
 names = sorted(os.listdir(data_path))
 

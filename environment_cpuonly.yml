@@ -5,7 +5,7 @@ channels:
   - dglteam
   - pytorch
 dependencies:
-  - python=3.7
+  - python=3.9
   - pytorch 1.10
   - torchvision
   - cpuonly

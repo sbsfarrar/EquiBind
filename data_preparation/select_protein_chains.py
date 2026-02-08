@@ -13,8 +13,9 @@ from tqdm import tqdm
 from commons.process_mols import read_molecule
 
 cutoff = 10
-data_dir = '../data/PDBBind'
-names = os.listdir(data_dir)
+data_dir = 'data/PDBBind'
+# names = os.listdir(data_dir)
+names = [name for name in os.listdir(data_dir) if "DS_Store" not in name]
 
 io = PDBIO()
 biopython_parser = PDBParser()

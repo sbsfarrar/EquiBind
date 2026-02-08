@@ -14,14 +14,14 @@ from commons.utils import write_strings_to_txt
 
 
 pdb_path = 'data/PDBBind'
-casf_names = os.listdir('data/deepBSP/casf_test')
-bsp_names = os.listdir('data/deepBSP/pdbbind_filtered')
-pdbbind_names = os.listdir(pdb_path)
+# casf_names = os.listdir('data/deepBSP/casf_test')
+# bsp_names = os.listdir('data/deepBSP/pdbbind_filtered')
+pdbbind_names = [name for name in os.listdir(pdb_path) if "DS_Store" not in name]
 
-df_pdb_id = pd.read_csv('data/PDBbind_index/INDEX_general_PL_name.2020', sep="  ", comment='#', header=None, names=['complex_name', 'year', 'pdb_id', 'd', 'e','f','g','h','i','j','k','l','m','n','o'])
+df_pdb_id = pd.read_csv('data/PDBbind_index/INDEX_refined_name.2020', sep="  ", comment='#', header=None, names=['complex_name', 'year', 'pdb_id', 'd', 'e','f','g','h','i','j','k','l','m','n','o'])
 df_pdb_id = df_pdb_id[['complex_name','year','pdb_id']]
 
-df_data = pd.read_csv('data/PDBbind_index/INDEX_general_PL_data.2020', sep="  ", comment='#', header=None, names=['complex_name','resolution','year', 'logkd', 'kd', 'reference', 'ligand_name', 'a', 'b', 'c'])
+df_data = pd.read_csv('data/PDBbind_index/INDEX_refined_data.2020', sep="  ", comment='#', header=None, names=['complex_name','resolution','year', 'logkd', 'kd', 'reference', 'ligand_name', 'a', 'b', 'c'])
 df_data = df_data[['complex_name','resolution','year', 'logkd', 'kd', 'reference', 'ligand_name']]
 
 cutoff = 5
